@@ -1,0 +1,10 @@
+fastapi[standard]>=0.113.0,<0.114.0
+pydantic>=2.7.0,<3.0.0
+langchain-groq==0.2.1
+python-dotenv
+langchain
+llama-index
+psycopg2-binary
+langchain_huggingface
+langchain-chroma
+langchain-google-genai 

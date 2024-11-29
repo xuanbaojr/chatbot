@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+    db:
+        image: postgres
+        volumes:
+            - ./data/db:/var/lib/postgresql/data
+            # - ./backend/dump_file.sql:/docker-entrypoint-initdb.d/dump_file.sql
+        environment:
+            - POSTGRES_DB=postgres
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+
+    chatbot:
+        image: xuanbao01/chatbot
+        command: uvicorn main:app --host 0.0.0.0 --port 8001 --reload
+        volumes:
+            - .:/app
+        ports:
+            - "8001:8001"
+        depends_on:
+            - db
+            
